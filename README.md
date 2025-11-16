@@ -1,41 +1,53 @@
-# Website
+# 🌸 Rangoli UI – Beautifully Crafted Components for Modern Web Apps ✨
+![Repo Hero Image](https://raw.githubusercontent.com/akshaywritescode/rangoli-docs/refs/heads/main/images/reset-password.png)
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Rangoli UI is a sleek and customizable React component library built on **shadcn/ui** and **Tailwind CSS**. 🚀 Designed for developers who want **scalable**, **accessible**, and **aesthetic** UI components without the bloat.
 
-## Installation
+## 🔥 Features
 
-```bash
-yarn
+✅ Pre-styled, themeable components 🎨  
+✅ Auto Translate with Lingo.dev 
+✅ Optimized for performance & accessibility ♿  
+✅ Dark mode support 🌙  
+✅ Easy integration with Next.js & Vite ⚡  
+✅ Developer-friendly & lightweight 🚀
+
+## 🚀 Usage
+
+Simply copy and paste the code into your project:
+
+```tsx
+<PricingCard
+  planTitle="Basic"
+  planDescription="Create interactive forms that connect to your workflow"
+  price={["24", "242"]}
+  isMonthly={true} /*can change dynamically */
+  features={[
+    "100 responses/mo included",
+    "1 user",
+    "Unlimited forms",
+    "Unlimited questions",
+  ]}
+  seeAllFeatureLink="/basic-features"
+/>
 ```
 
-## Local Development
+## 🤝 Contributing
 
-```bash
-yarn start
-```
+We welcome contributions! To contribute:
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+1. Fork the repo 📌
+2. Create a new branch ✨
+3. Commit changes 💡
+4. Submit a PR 🚀
 
-## Build
+## 💡 Want to Contribute to Live Component Examples?
 
-```bash
-yarn build
-```
+If you want to contribute to live component examples, we have a separate repository for that! Check out [Live Components Example Repo](https://github.com/akshaywritescode/RangoliUI-live-components) and submit your improvements there.
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-## Deployment
+## 🛡️ License
 
-Using SSH:
+Rangoli UI is licensed under the **MIT License**.
 
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+💖 **Made with love by Akshay Yadav**
