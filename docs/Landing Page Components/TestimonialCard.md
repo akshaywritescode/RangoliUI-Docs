@@ -44,7 +44,7 @@ type TTestimonialCard = {
 }
 
 export default function TestimonialCard({ description, testimonialAvatar, testimonialAvatarAlt, testimonialName, testimonialUserHandle }: TTestimonialCard) {
-    return <Card className="w-[320px] text-sm pt-3">
+    return <Card className="w-[320px] text-sm pt-3 h-[200px]">
         <CardContent>
             <p>{description}</p>
         </CardContent>
