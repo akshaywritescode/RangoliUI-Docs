@@ -6,8 +6,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Rangoli UI',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  tagline: 'Rangoli UI is a ShadCN Based component UI Library',
+  favicon: 'img/favicon.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://rangoli-ui-docs.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -79,11 +79,11 @@ const config: Config = {
       title: 'RangoliUI',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/favicon.svg',
       },
       items: [
         {
-          href: 'https://github.com/akshaywritescode',
+          href: 'https://github.com/akshaywritescode/RangoliUI-Docs',
           label: 'GitHub',
           position: 'right',
         },
