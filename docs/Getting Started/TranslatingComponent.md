@@ -34,7 +34,7 @@ Create `/app/providers/i18nProvider.tsx` (client component). This is the provide
 ```tsx
 "use client";
 
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import en from "@/i18n/en.json";
 import hi from "@/i18n/hi.json";
 import de from "@/i18n/de.json";
@@ -45,27 +45,31 @@ import es from "@/i18n/es.json";
 
 type LocaleKey = "en" | "hi" | "de" | "zh" | "ja" | "ko" | "es";
 
-const messagesMap: Record<LocaleKey, Record<string, string>> = {
+const translations: Record<LocaleKey, Record<string, string>> = {
   en, hi, de, zh, ja, ko, es
 };
 
-const I18nContext = createContext<{
-  locale: LocaleKey;
-  setLocale: (l: LocaleKey) => void;
-  t: (key: string) => string;
-} | null>(null);
+const I18nContext = createContext<any>(null);
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocale] = useState<LocaleKey>("en");
 
-  const t = useMemo(() => {
-    return (key: string) => {
-      const val = messagesMap[locale]?.[key];
-      if (typeof val === "string") return val;
-      // fallback: try english, else return key
-      return messagesMap["en"][key] ?? key;
-    };
+  // Load saved language on first render
+  useEffect(() => {
+    const saved = localStorage.getItem("app-locale") as LocaleKey | null;
+    if (saved && translations[saved]) {
+      setLocale(saved);
+    }
+  }, []);
+
+  // Save language whenever user switches
+  useEffect(() => {
+    localStorage.setItem("app-locale", locale);
   }, [locale]);
+
+  function t(key: string) {
+    return translations[locale]?.[key] ?? translations["en"]?.[key] ?? key;
+  }
 
   return (
     <I18nContext.Provider value={{ locale, setLocale, t }}>
@@ -75,9 +79,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useI18n() {
-  const ctx = useContext(I18nContext);
-  if (!ctx) throw new Error("useI18n must be used inside I18nProvider");
-  return ctx;
+  return useContext(I18nContext);
 }
 
 ```
@@ -132,13 +134,13 @@ export function LanguageSwitcher() {
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button variant="outline" role="combobox" aria-expanded={open} className="w-[200px] justify-between">
-          {languages.find(l => l.value === locale)?.label ?? "select_language"}
+          {languages.find(l => l.value === locale)?.label ?? "Select Language..."}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder={"select_language"} className="h-9" />
+          <CommandInput placeholder={"Select Language..."} className="h-9" />
           <CommandList>
             <CommandEmpty>No language found.</CommandEmpty>
             <CommandGroup>
