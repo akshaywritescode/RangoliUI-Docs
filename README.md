@@ -1,5 +1,5 @@
 # 🌸 Rangoli UI – Beautifully Crafted Components for Modern Web Apps ✨
-![Repo Hero Image](https://raw.githubusercontent.com/akshaywritescode/rangoli-docs/refs/heads/main/images/reset-password.png)
+![Repo Hero Image](https://raw.githubusercontent.com/akshaywritescode/RangoliUI-Docs/refs/heads/main/static/img/ui.avif)
 
 Rangoli UI is a sleek and customizable React component library built on **shadcn/ui** and **Tailwind CSS**. 🚀 Designed for developers who want **scalable**, **accessible**, and **aesthetic** UI components without the bloat.
 
